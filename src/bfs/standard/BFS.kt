@@ -6,7 +6,7 @@ class BFS {
 
     private val queue: Queue<Node> = LinkedList()
 
-    fun dfs(graph: Graph) {
+    fun bfs(graph: Graph) {
         graph.nodes.asSequence().filter { !it.visited }.forEach(::bfsInQueue)
     }
 

@@ -10,7 +10,7 @@ import java.util.stream.Collectors
 class WebCrawler(private val firstUrl: String = "", private val maxUrlCount: Int = 0, urlPattern: String = "") {
 
     private val pattern: Pattern = Pattern.compile(urlPattern)
-    
+
     fun bfs(): Set<String> {
         if (!pattern.matcher(firstUrl).matches())
             return emptySet()
@@ -27,7 +27,7 @@ class WebCrawler(private val firstUrl: String = "", private val maxUrlCount: Int
                     readLinesOrNull(currentUrl)
                         ?.let { lines ->
 
-                            println("Visited url $currentUrl")
+                            println("Crawled url $currentUrl")
                             visitedUrls.add(currentUrl)
 
                             if (visitedUrls.size < maxUrlCount)
@@ -36,7 +36,7 @@ class WebCrawler(private val firstUrl: String = "", private val maxUrlCount: Int
                 }
         }
 
-        println("Crawling completed. ${visitedUrls.size} urls visited")
+        println("Crawling completed. ${visitedUrls.size} urls crawled")
         return visitedUrls
     }
 

@@ -16,6 +16,6 @@ fun main(args: Array<String>) {
     val graph = Graph(listOf(rootNode))
 
     val bfsSearch = BFS()
-    bfsSearch.dfs(graph)
+    bfsSearch.bfs(graph)
 
 }
