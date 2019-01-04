@@ -116,6 +116,7 @@ class Maze : JComponent() {
         return Graph(nodes)
     }
 
+    //instantiating the nodes this way creates a bias in the search algorithm to always try and go left and up first
     private fun instantiateNodeMatrix(): Array<Array<Node>> {
         val nodeMatrix = mutableListOf<MutableList<Node>>().apply {
             for (i in 0 until rowNo) {
