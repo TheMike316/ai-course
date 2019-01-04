@@ -65,7 +65,7 @@ class Maze : JComponent() {
             graphics2D.color = Color.GREEN
             graphics2D.fillRect(x * blockSize, y * blockSize, blockSize, blockSize)
 
-            Thread.sleep(1000)
+            Thread.sleep(500)
         }
     }
 
