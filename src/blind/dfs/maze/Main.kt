@@ -1,4 +1,4 @@
-package dfs.maze
+package blind.dfs.maze
 
 import javax.swing.JFrame
 

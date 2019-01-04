@@ -1,4 +1,4 @@
-package dfs.standard
+package blind.dfs.standard
 
 class Node(var element: Any, var visited: Boolean = false, var children: MutableList<Node> = mutableListOf()) {
 

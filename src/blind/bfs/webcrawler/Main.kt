@@ -1,4 +1,4 @@
-package bfs.webcrawler
+package blind.bfs.webcrawler
 
 
 fun main(args: Array<String>) {

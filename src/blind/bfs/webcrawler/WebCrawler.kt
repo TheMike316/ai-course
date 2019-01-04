@@ -1,4 +1,4 @@
-package bfs.webcrawler
+package blind.bfs.webcrawler
 
 import java.io.BufferedReader
 import java.io.InputStreamReader

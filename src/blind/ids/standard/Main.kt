@@ -1,4 +1,4 @@
-package ids.standard
+package blind.ids.standard
 
 fun main(args: Array<String>) {
 

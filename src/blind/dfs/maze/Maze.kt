@@ -1,4 +1,4 @@
-package dfs.maze
+package blind.dfs.maze
 
 import java.awt.Color
 import java.awt.Graphics

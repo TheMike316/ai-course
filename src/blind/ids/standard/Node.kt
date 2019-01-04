@@ -1,4 +1,4 @@
-package ids.standard
+package blind.ids.standard
 
 class Node(
     val element: Any,

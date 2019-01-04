@@ -1,4 +1,4 @@
-package bfs.standard
+package blind.bfs.standard
 
 import java.util.*
 

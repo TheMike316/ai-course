@@ -1,4 +1,4 @@
-package dfs.maze
+package blind.dfs.maze
 
 class Node(var element: Any, var visited: Boolean = false, var neighbors: MutableList<Node> = mutableListOf()) {
 

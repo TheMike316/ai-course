@@ -1,3 +1,3 @@
-package dfs.standard
+package blind.bfs.standard
 
 class Graph(var nodes: List<Node> = emptyList())
