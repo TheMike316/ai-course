@@ -1,9 +1,6 @@
 package heuristic.bestfirst.standard
 
-class Node(
-    val element: Any,
-    private val connections: MutableList<Connection> = mutableListOf()
-) {
+class Node(val element: Any, private val connections: MutableList<Connection> = mutableListOf()) {
 
     fun getNextNodeOrNull(): Node? {
         if (connections.isEmpty())
