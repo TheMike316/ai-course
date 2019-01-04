@@ -12,9 +12,5 @@ fun main(args: Array<String>) {
         isVisible = true
     }
 
-    val dfs = DFS()
-
-    val visitedNodes = dfs.dfs(maze.getGraph(), maze.getStartingPoint()) { it.element == maze.getTargetPoint() }
-
-    visitedNodes.forEach(::println)
+    maze.paintPath()
 }

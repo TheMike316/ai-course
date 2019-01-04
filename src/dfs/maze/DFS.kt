@@ -2,17 +2,13 @@ package dfs.maze
 
 import java.util.*
 
-class DFS {
+object DFS {
 
 
     fun dfs(graph: Graph, startNodeIndex: Int, targetPredicate: (Node) -> Boolean): List<Node> {
-        return dfsInStack(graph.nodes[startNodeIndex], targetPredicate)
-    }
-
-    private fun dfsInStack(node: Node, targetPredicate: (Node) -> Boolean): List<Node> {
         val stack = Stack<Node>()
 
-        stack.push(node)
+        stack.push(graph.nodes[startNodeIndex])
 
         val visitedNodes = mutableListOf<Node>()
         while (!stack.isEmpty()) {

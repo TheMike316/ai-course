@@ -43,6 +43,33 @@ class Maze : JComponent() {
     override fun paintComponent(g: Graphics?) {
         val graphics2D = g as? Graphics2D ?: throw IllegalArgumentException()
 
+        paintMaze(graphics2D)
+    }
+
+    fun paintPath() {
+        paintPath(graphics)
+    }
+
+    private fun paintPath(g: Graphics) {
+        val graphics2D = g as? Graphics2D ?: throw IllegalArgumentException()
+
+        val nodes = DFS.dfs(graph, getStartingPoint()) { it.element == getTargetPoint() }
+
+        //do not recolor start and target point
+        for (i in 1 until nodes.size - 1) {
+            val idx = nodes[i].element as? Int ?: throw IllegalStateException()
+
+            val x = idx % colNo
+            val y = idx / colNo
+
+            graphics2D.color = Color.GREEN
+            graphics2D.fillRect(x * blockSize, y * blockSize, blockSize, blockSize)
+
+            Thread.sleep(1000)
+        }
+    }
+
+    private fun paintMaze(graphics2D: Graphics2D) {
         for (i in 0 until rowNo) {
             for (j in 0 until colNo) {
                 val mazeBlock = maze[i][j]
@@ -60,11 +87,9 @@ class Maze : JComponent() {
         }
     }
 
-    fun getGraph() = graph
+    private fun getStartingPoint() = getIndexOfElement(-1)
 
-    fun getStartingPoint() = getIndexOfElement(-1)
-
-    fun getTargetPoint() = getIndexOfElement(9)
+    private fun getTargetPoint() = getIndexOfElement(9)
 
     private fun getIndexOfElement(wantedElement: Int): Int {
         var idx = 0
