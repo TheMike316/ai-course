@@ -12,16 +12,16 @@ class Maze : JComponent() {
     // -1: starting point
     // 9: target
     private val maze: Array<IntArray> = arrayOf(
-        intArrayOf(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-        intArrayOf(1, -1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1),
-        intArrayOf(1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1),
-        intArrayOf(1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1),
-        intArrayOf(1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1),
-        intArrayOf(1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 1),
-        intArrayOf(1, 0, 1, 0, 1, 0, 0, 0, 1, 1, 1, 0, 1),
-        intArrayOf(1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1),
-        intArrayOf(1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 9, 1),
-        intArrayOf(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+            intArrayOf(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+            intArrayOf(1, -1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1),
+            intArrayOf(1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1),
+            intArrayOf(1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1),
+            intArrayOf(1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1),
+            intArrayOf(1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 1),
+            intArrayOf(1, 0, 1, 0, 1, 0, 0, 0, 1, 1, 1, 0, 1),
+            intArrayOf(1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1),
+            intArrayOf(1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 9, 1),
+            intArrayOf(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
     )
 
     private val rowNo: Int = maze.size
@@ -61,6 +61,23 @@ class Maze : JComponent() {
     }
 
     fun getGraph() = graph
+
+    fun getStartingPoint() = getIndexOfElement(-1)
+
+    fun getTargetPoint() = getIndexOfElement(9)
+
+    private fun getIndexOfElement(wantedElement: Int): Int {
+        var idx = 0
+        for (i in 0 until rowNo) {
+            for (j in 0 until colNo) {
+                if (maze[i][j] == wantedElement)
+                    return idx
+            }
+            idx++
+        }
+
+        return 0
+    }
 
     private fun createGraph(): Graph {
         val nodes = mutableListOf<Node>()
