@@ -92,7 +92,11 @@ class Maze : JComponent() {
     }
 
     private fun instantiateNodeMatrix(): Array<Array<Node>> {
-        val nodeMatrix = emptyArray<Array<Node>>()
+        val nodeMatrix = mutableListOf<MutableList<Node>>().apply {
+            for (i in 0 until rowNo) {
+                add(i, mutableListOf())
+            }
+        }
 
         var idx = 0
         for (i in 0 until rowNo) {
@@ -111,12 +115,13 @@ class Maze : JComponent() {
                     aboveNode.addNeighbor(node)
                 }
 
-                nodeMatrix[i][j] = node
+                nodeMatrix[i].add(j, node)
                 idx++
             }
         }
 
-        return nodeMatrix
+        return nodeMatrix.map { it.toTypedArray() }.toTypedArray()
     }
+
 
 }
